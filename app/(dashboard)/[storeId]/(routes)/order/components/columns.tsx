@@ -43,9 +43,5 @@ export const columns: ColumnDef<OrderColumns>[] = [
   {
     accessorKey: "isPaid",
     header: "Paid",
-  },
-  {
-    id:"action",
-    cell:({row})=><CellAction data={row.original}/>
   }
 ]
