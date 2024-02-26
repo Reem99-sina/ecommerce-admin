@@ -9,11 +9,11 @@ export async function POST(req:Request){
     const signature=headers().get("Stripe-Signature") as string
     let event:Stripe.Event
     try{
-        event=stripe.webhooks.constructEvent({
+        event=stripe.webhooks.constructEvent(
             body,
             signature,
             process.env.STRIP_WEBHOOKS_SECRET!
-        })
+        )
     }catch(error:any){
         return new NextResponse(`webhook error ${error.message}`,{status:400})
     }
