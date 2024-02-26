@@ -21,11 +21,7 @@ export default function RootLayout({
 }>) {
   // const store =prismadb.store
   return (
-    <ClerkProvider
-    // appearance={{
-    //   baseTheme: dark
-    // }}
-  >
+    <ClerkProvider>
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider   attribute="class"
