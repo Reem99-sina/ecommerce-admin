@@ -13,7 +13,7 @@ export default async function SetupLayout({children}:{children:React.ReactNode})
         }
     })
     if(store){
-        redirect(`/${store?.id}`)
+        redirect(`https://ecommerce-admin-woad-sigma.vercel.app/${store?.id}`)
     }
     return(<>
     {children}

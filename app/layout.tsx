@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   // const store =prismadb.store
   return (
-    <ClerkProvider publishableKey={"https://ecommerce-admin-woad-sigma.vercel.app/"}>
+    <ClerkProvider>
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider   attribute="class"
