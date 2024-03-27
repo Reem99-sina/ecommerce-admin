@@ -21,7 +21,7 @@ export const getGraph=async(storeId:string)=>{
         let month=order.createdAt.getMonth()
         let revenueForOrder=0
         for(const items of order.orderItems){
-            revenueForOrder+=items.product.price.toNumber()
+            revenueForOrder+=Number(items.product.price)
         }
         monthyRevnue[month]=(monthyRevnue[month]||0)+revenueForOrder
     }

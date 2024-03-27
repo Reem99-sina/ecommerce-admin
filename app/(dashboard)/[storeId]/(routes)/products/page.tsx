@@ -21,7 +21,7 @@ const ProductsPage=async({params}:{params:{storeId:string}})=>{
         name:ele.name,
         isFeatured:ele.isFeatured,
         isArchived:ele.isArchived,
-        price:formatter.format(ele.price.toNumber()),
+        price:formatter.format(Number(ele.price)),
         category:ele.category.name,
         size:ele.size.name,
         color:ele.color.value,

@@ -3,36 +3,36 @@ import {auth} from "@clerk/nextjs"
 import prismadb from "@/lib/prismadb";
 import {toast} from "react-hot-toast"
 export async function POST(req:Request){
-   
-const {userId}= auth()
+   try{
+    const {userId}= auth()
 
-const body=await req.json()
-
-const {name}= body
-// console.log("error",name)
-if(!userId){
-    // console.log(userId,"userId")
-return new NextResponse("unauthorized",{status:401})
-
-}
-
-if(!name){
-    return new NextResponse("name is required",{status:401})
+    const body=await req.json()
+    
+    const {name}= body
+    // console.log("error",name)
+    if(!userId){
+        // console.log(userId,"userId")
+    return new NextResponse("unauthorized",{status:401})
     
     }
-     await prismadb.store.create({
-        data:{
-            name,userId
+    
+    if(!name){
+        return new NextResponse("name is required",{status:401})
+        
         }
-    }).then((store)=>{
-        // toast.success("store is created")
+        const store= await prismadb.store.create({
+            data:{
+                name,userId
+            }
+        })
+            // toast.success("store is created")
+    
+            return  NextResponse.json(store)
+        
+   }catch(error){
+    return new NextResponse("interal error",{status:500})
+   }
 
-        return  NextResponse.json(store)
-    }).catch((error)=>{
-        // toast.error("error some thing was wrong")
-
-        return new NextResponse("interal error",{status:500})
-    })
     
 // }catch(error){
     

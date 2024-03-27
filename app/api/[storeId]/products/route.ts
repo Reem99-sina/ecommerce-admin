@@ -56,7 +56,7 @@ export async function POST(req: Request, { params }: { params: { storeId: string
         }
         const product = await prismadb.product.create({
             data: {
-                name, price, storeId: params.storeId,categoryId,sizeId,colorId,isArchived,isFeatured,
+                name, price:String(price), storeId: params.storeId,categoryId,sizeId,colorId,isArchived,isFeatured,
                 images:{
                     createMany:{
                         data:[...images.map((image:{url:string})=>image)]
@@ -68,6 +68,7 @@ export async function POST(req: Request, { params }: { params: { storeId: string
         return NextResponse.json(product)
 
     } catch (error) {
+        console.log(error,"error")
         return new NextResponse("interal error", { status: 500 })
 
     }

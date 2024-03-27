@@ -2,11 +2,11 @@ import prismadb from "@/lib/prismadb"
 import { BillboardForm } from "./components/billboard-form"
 
 const BillboardsPage=async({params}:{params:{billboardId:string}})=>{
-    const billboard =await prismadb.billboard.findUnique({
+    const billboard =params.billboardId!="new"?await prismadb.billboard.findUnique({
         where:{
             id:params.billboardId
         }
-    })
+    }):null
 return(
     <>
     <div className="flex-col">

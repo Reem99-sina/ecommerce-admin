@@ -51,9 +51,9 @@ export const BillboardForm: React.FC<billboardFormProps> = ({
         setLoading(true)
         if (initialData) {
             await axios.patch(`/api/${params.storeId}/billboards/${params.billboardId}`, data).then((store) => {
-                route.refresh()
+                
                 route.push(`/${params.storeId}/billboard`)
-
+                route.refresh()
                 toast.success(toastMessage)
                 setLoading(false)
 
@@ -64,6 +64,7 @@ export const BillboardForm: React.FC<billboardFormProps> = ({
             })
         } else {
             await axios.post(`/api/${params.storeId}/billboards`, data).then((store) => {
+                route.push(`/${params.storeId}/billboard`)
                 route.refresh()
                 toast.success(toastMessage)
                 setLoading(false)

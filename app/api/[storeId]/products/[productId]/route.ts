@@ -60,7 +60,7 @@ export async function PATCH(req:Request,{params}:{params:{storeId:string,product
                 id:params.productId       
              },
                 data:{
-                    name, categoryId, sizeId, colorId, price, images:{deleteMany:{}}, isFeatured, isArchived
+                    name, categoryId, sizeId, colorId, price:String(price), images:{deleteMany:{}}, isFeatured, isArchived
             }
         })
         const product=await prismadb.product.update({

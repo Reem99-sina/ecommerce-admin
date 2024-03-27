@@ -54,7 +54,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
             await axios.patch(`/api/${params.storeId}/colors/${params.sizeId}`, data).then((store) => {
                 // route.refresh()
                 route.push(`/${params.storeId}/colors`)
-
+                route.refresh()
                 toast.success(toastMessage)
                 setLoading(false)
 
@@ -67,7 +67,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
             await axios.post(`/api/${params.storeId}/colors`, data).then((store) => {
                 // route.refresh()
                 route.push(`/${params.storeId}/colors`)
-
+                route.refresh()
                 toast.success(toastMessage)
                 setLoading(false)
 

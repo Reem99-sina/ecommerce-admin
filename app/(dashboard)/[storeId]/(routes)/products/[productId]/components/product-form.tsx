@@ -70,7 +70,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             await axios.patch(`/api/${params.storeId}/products/${params.productId}`, data).then((store) => {
                 
                 route.push(`/${params.storeId}/products`)
-
+                route.refresh()
                 toast.success(toastMessage)
                 setLoading(false)
 
@@ -82,13 +82,13 @@ export const ProductForm: React.FC<ProductFormProps> = ({
         } else {
             await axios.post(`/api/${params.storeId}/products`, data).then((store) => {
                 route.push(`/${params.storeId}/products`)
-
+                route.refresh()
                 toast.success(toastMessage)
                 setLoading(false)
 
             }).catch((error) => {
                 setLoading(false)
-
+                console.log(error,"error")
                 toast.error("something is wrong")
             })
         }
@@ -172,7 +172,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                             </FormItem>
                             )}
                         />
-                        <FormField control={form.control} name="price" render={({ field }) => (
+                        {/* <FormField control={form.control} name="price" render={({ field }) => (
                             <FormItem>
                                 <FormLabel>price</FormLabel>
                                 <FormControl>
@@ -181,7 +181,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                                 <FormMessage />
                             </FormItem>
                             )}
-                        />
+                        /> */}
                         <FormField control={form.control} name="sizeId" render={({ field }) => (
                             <FormItem>
                                 <FormLabel>size</FormLabel>

@@ -54,7 +54,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
             await axios.patch(`/api/${params.storeId}/sizes/${params.sizeId}`, data).then((store) => {
                 // route.refresh()
                 route.push(`/${params.storeId}/sizes`)
-
+                route.refresh()
                 toast.success(toastMessage)
                 setLoading(false)
 
@@ -67,7 +67,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
             await axios.post(`/api/${params.storeId}/sizes`, data).then((store) => {
                 // route.refresh()
                 route.push(`/${params.storeId}/sizes`)
-
+                route.refresh()
                 toast.success(toastMessage)
                 setLoading(false)
 
