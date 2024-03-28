@@ -12,8 +12,9 @@ export default async function SetupLayout({children}:{children:React.ReactNode})
             userId
         }
     })
+    console.log(store,"store")
     if(store){
-        redirect(`/${store?.id}`)
+        redirect(`/${store.id}`)
     }
     return(<>
     {children}

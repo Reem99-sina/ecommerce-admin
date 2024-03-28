@@ -18,6 +18,7 @@ export async function GET(_req:Request,{params}:{params:{billboardId:string}}){
             return NextResponse.json(billboard)
         
     }catch(error){
+        console.log(error,"error")
         return new NextResponse("internal error",{status:500})
 
     }
