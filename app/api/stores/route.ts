@@ -41,14 +41,10 @@ export async function POST(req:Request){
 // }
 }
 export async function GET(req:Request){
-    try{
-                
-         const store= await prismadb.store.findMany()
-
-             return  NextResponse.json(store)
-         
+    try{ 
+    const store= await prismadb.store.findMany()
+    return  NextResponse.json(store)
     }catch(error){
      return new NextResponse("interal error",{status:500})
- 
     }
-     }
+}
