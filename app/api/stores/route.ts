@@ -45,6 +45,7 @@ export async function GET(req:Request){
     const store= await prismadb.store.findMany()
     return  NextResponse.json(store)
     }catch(error){
+        
      return new NextResponse("interal error",{status:500})
     }
 }
