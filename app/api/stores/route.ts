@@ -40,3 +40,22 @@ export async function POST(req:Request){
 // return new NextResponse("interal error",{status:500})
 // }
 }
+export async function GET(req:Request){
+    try{
+                
+         const store= await prismadb.store.findMany()
+         console.log(store,"store")
+             return  NextResponse.json(store)
+         
+    }catch(error){
+     return new NextResponse("interal error",{status:500})
+ 
+    }
+     
+         
+     // }catch(error){
+         
+     //     // toast.error("error")
+     // return new NextResponse("interal error",{status:500})
+     // }
+     }

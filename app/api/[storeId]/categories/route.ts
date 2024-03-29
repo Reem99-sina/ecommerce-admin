@@ -41,9 +41,6 @@ export async function POST(req:Request,{params}:{params:{storeId:string}}){
 }
 export async function GET(req:Request,{params}:{params:{storeId:string}}){
    try{
-   
-    
-    
             if(!params.storeId){
                 return new NextResponse("storeId is required",{status:401})
                 
@@ -54,7 +51,7 @@ export async function GET(req:Request,{params}:{params:{storeId:string}}){
                storeId:params.storeId
             }
         })
-        
+        console.log(category,"category")
             return  NextResponse.json(category)
         
    }catch(error){
