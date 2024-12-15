@@ -12,7 +12,7 @@ export async function POST(req:Request){
         event=stripe.webhooks.constructEvent(
             body,
             signature,
-            process.env.STRIP_WEBHOOKS_SECRET!
+            process.env.CLERK_SECRET_KEY!
         )
     }catch(error:any){
         return new NextResponse(`webhook error ${error.message}`,{status:400})
